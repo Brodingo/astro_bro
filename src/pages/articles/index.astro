@@ -9,4 +9,21 @@ import { getArticles } from "../../api/drupal";
 // Get all published articles
 const articles = await getArticles();
 ---
-
+<html lang="en">
+    <head>
+        <title>My Hot Blog</title>
+    </head>
+    <body>
+        <h1>My Hot Blog</h1>
+        <ul>
+            {articles.map((article: DrupalNode) => (
+                <li>
+                    <a href={article.path.alias.replace("internal:en/","")}>
+                        <h2>{article.title}</h2>
+                        <p>Published on {article.created}</p>
+                    </a>
+                </li>
+            ))}
+        </ul>
+    </body>
+</html>
