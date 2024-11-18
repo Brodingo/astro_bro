@@ -1,6 +1,6 @@
 ## Astro <3 Drupal
 
-An astro site that pulls Drupal content via JSON:API. Cool!
+An Astro site that pulls Drupal content via JSON:API. Cool! The best of both worlds.
 
 ## 🧞 Commands
 
