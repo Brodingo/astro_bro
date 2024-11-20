@@ -1,0 +1,13 @@
+---
+import { Jsona } from "jsona";
+import { DrupalJsonApiParams } from "drupal-jsonapi-params";
+import type { TJsonApiBody } from "jsona/lib/JsonaTypes";
+
+import type { DrupalNode } from "../../types";
+import { getArticles } from "../../api/drupal";
+
+// Get all published articles
+export async function getStaticPaths() {
+    const articles = await getArticles();
+}
+---
