@@ -15,3 +15,7 @@ All commands are run from the root of the project, from a terminal:
 | `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `npm run astro -- --help` | Get help using the Astro CLI                     |
 
+#### Working locally with Drupal
+Astro has a great guide on [getting started with using Drupal content in your Astro site](https://deploy-preview-9492--astro-docs-2.netlify.app/en/guides/cms/drupal/). For newer Node developers (couldn't be me) there may be a few bumps in the road not covered in the Astro docs. One of my first issues was a dreaded `UNABLE_TO_VERIFY_LEAF_SIGNATURE` error. I tried many workarounds including trying to copy the ddev certificate into astro and setting up the middleware to inject the cert. Since this is built locally only, disabling the SSL verification in Node was the easier route. Obviously not the best solution working non-locally but it let me move forward.
+
+`NODE_TLS_REJECT_UNAUTHORIZED=0 npm start`

@@ -14,6 +14,7 @@ export interface DrupalNode extends Record<string, any> {
     changed: string
     created: string
     title: string
+    body: string
     default_langcode: boolean
     sticky: boolean
     path: Path

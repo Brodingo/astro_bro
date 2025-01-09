@@ -9,5 +9,33 @@ import { getArticles } from "../../api/drupal";
 // Get all published articles
 export async function getStaticPaths() {
     const articles = await getArticles();
+    return articles.map((article: DrupalNode) => {
+        return {
+            params: {
+                // Choose `path` to match the `[path].astro` route
+                path: article.path.alias.split('/')[2]
+            },
+            props: {
+                title: article.title,
+                body: article.body.value,
+                date: new Date(article.created).toLocaleDateString('en-EN', {
+                    month: 'long',
+                    day: 'numeric',
+                    year: 'numeric'
+                })
+            }
+        }
+    });
 }
+const {title, date, body} = Astro.props;
 ---
+<html lang="en">
+  <head>
+    <title>{title}</title>
+  </head>
+  <body>
+    <h1>{title}</h1>
+    <time>{date}</time>
+    <article set:html={body} />
+  </body>
+</html>
