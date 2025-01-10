@@ -17,7 +17,7 @@ export async function getStaticPaths() {
             },
             props: {
                 title: article.title,
-                body: article.body.value,
+                body: article.body,
                 date: new Date(article.created).toLocaleDateString('en-EN', {
                     month: 'long',
                     day: 'numeric',
@@ -36,6 +36,6 @@ const {title, date, body} = Astro.props;
   <body>
     <h1>{title}</h1>
     <time>{date}</time>
-    <article set:html={body} />
+    <article set:html={body.value} />
   </body>
 </html>
